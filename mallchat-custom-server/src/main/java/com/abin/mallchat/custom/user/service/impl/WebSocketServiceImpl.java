@@ -105,9 +105,10 @@ public class WebSocketServiceImpl implements WebSocketService {
         //生成随机不重复的登录码
         Integer code = generateLoginCode(channel);
         //请求微信接口，获取登录码地址
-        WxMpQrCodeTicket wxMpQrCodeTicket = wxMpService.getQrcodeService().qrCodeCreateTmpTicket(code, (int) EXPIRE_TIME.getSeconds());
+     //   WxMpQrCodeTicket wxMpQrCodeTicket = wxMpService.getQrcodeService().qrCodeCreateTmpTicket(code, (int) EXPIRE_TIME.getSeconds());
         //返回给前端
-        sendMsg(channel, WSAdapter.buildLoginResp(wxMpQrCodeTicket));
+        String url = "http://192.168.0.126:8080//capi/user/scan/" + code;
+        sendMsg(channel, WSAdapter.buildLogin2Resp(url));
     }
 
     /**

@@ -8,6 +8,8 @@ import com.abin.mallchat.common.common.exception.BusinessException;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 
+import java.net.InetSocketAddress;
+import java.net.Proxy;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -143,7 +145,9 @@ public class ChatGPTUtils {
         param.set("presence_penalty", presencePenalty);
         log.info("headers >>> " + headers);
         log.info("param >>> " + param);
-        return HttpUtil.createPost(StringUtils.isNotBlank(proxyUrl) ? proxyUrl : URL)
+        Proxy proxy = new Proxy(Proxy.Type.HTTP,new InetSocketAddress("127.0.0.1", 4780));
+        return HttpUtil.createPost(URL)
+                .setProxy(proxy)
                 .addHeaders(headers)
                 .body(param.toString())
                 .timeout(timeout)
@@ -151,7 +155,7 @@ public class ChatGPTUtils {
     }
 
     public static void main(String[] args) {
-        HttpResponse send = ChatGPTUtils.create("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")
+        HttpResponse send = ChatGPTUtils.create("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")
                 .timeout(30 * 1000)
                 .prompt("Spring的启动流程是什么")
                 .send();

@@ -28,6 +28,13 @@ public class WSAdapter {
     @Autowired
     private ChatService chatService;
 
+    public static WSBaseResp<WSLoginUrl> buildLogin2Resp(String url) {
+        WSBaseResp<WSLoginUrl> wsBaseResp = new WSBaseResp<>();
+        wsBaseResp.setType(WSRespTypeEnum.LOGIN_URL.getType());
+        wsBaseResp.setData(WSLoginUrl.builder().loginUrl(url).build());
+        return wsBaseResp;
+    }
+
     public static WSBaseResp<WSLoginUrl> buildLoginResp(WxMpQrCodeTicket wxMpQrCodeTicket) {
         WSBaseResp<WSLoginUrl> wsBaseResp = new WSBaseResp<>();
         wsBaseResp.setType(WSRespTypeEnum.LOGIN_URL.getType());

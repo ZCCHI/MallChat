@@ -1,6 +1,7 @@
 package com.abin.mallchat.custom.chatai.handler;
 
 import cn.hutool.http.HttpResponse;
+import cn.hutool.http.HttpUtil;
 import com.abin.mallchat.common.chat.domain.entity.Message;
 import com.abin.mallchat.common.chat.domain.entity.msg.MessageExtra;
 import com.abin.mallchat.common.common.domain.dto.FrequencyControlDTO;
@@ -16,6 +17,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.util.CollectionUtils;
 
+import java.net.InetSocketAddress;
+import java.net.Proxy;
 import java.util.concurrent.TimeUnit;
 
 import static com.abin.mallchat.common.common.service.frequencycontrol.FrequencyControlStrategyFactory.TOTAL_COUNT_WITH_IN_FIX_TIME_FREQUENCY_CONTROLLER;

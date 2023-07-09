@@ -11,8 +11,8 @@ import org.springframework.stereotype.Component;
  * @date 2023/06/30
  */
 @Data
-@Component
-@ConfigurationProperties(prefix = "chatai.chatglm2")
+//@Component
+//@ConfigurationProperties(prefix = "chatai.chatglm2")
 public class ChatGLM2Properties {
 
     /**

@@ -101,6 +101,10 @@ public class UserServiceImpl implements UserService {
         //查询用户当前佩戴的标签
         User user = userDao.getById(uid);
         return UserAdapter.buildBadgeResp(itemConfigs, backpacks, user);
+/*        BadgeResp badgeResp = new BadgeResp();
+        badgeResp.setId(1L);
+        badgeResp.setImg("https://yunk-supply-chain-test.oss-cn-hangzhou.aliyuncs.com/2023-03-06/820f8bb6651340e89e24afc31b2dd56b.png");
+        badgeResp.setDescribe("xxxx");*/
     }
 
     @Override

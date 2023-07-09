@@ -29,7 +29,7 @@ import static com.abin.mallchat.common.common.constant.RedisKey.USER_GLM2_TIME_L
 import static com.abin.mallchat.common.common.service.frequencycontrol.FrequencyControlStrategyFactory.TOTAL_COUNT_WITH_IN_FIX_TIME_FREQUENCY_CONTROLLER;
 
 @Slf4j
-@Component
+//@Component
 public class ChatGLM2Handler extends AbstractChatAIHandler {
     /**
      * ChatGLM2Handler限流前缀

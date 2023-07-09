@@ -36,10 +36,10 @@ public class TokenInterceptor implements HandlerInterceptor {
             request.setAttribute(ATTRIBUTE_UID, validUid);
         } else {
             boolean isPublicURI = isPublicURI(request.getRequestURI());
-            if (!isPublicURI) {//又没有登录态，又不是公开路径，直接401
+           /* if (!isPublicURI) {//又没有登录态，又不是公开路径，直接401
                 HttpErrorEnum.ACCESS_DENIED.sendHttpError(response);
                 return false;
-            }
+            }*/
         }
         MDC.put(MDCKey.UID, String.valueOf(validUid));
         return true;

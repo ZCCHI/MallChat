@@ -36,8 +36,8 @@ public class MessageSendListener {
     @Autowired
     private IChatAIService openAIService;
 
-    @Autowired
-    WeChatMsgOperationService weChatMsgOperationService;
+    //@Autowired
+   // WeChatMsgOperationService weChatMsgOperationService;
 
     @Async
     @TransactionalEventListener(classes = MessageSendEvent.class, fallbackExecution = true)
@@ -53,12 +53,12 @@ public class MessageSendListener {
         openAIService.chat(message);
     }
 
-    @TransactionalEventListener(classes = MessageSendEvent.class, fallbackExecution = true)
+    /*@TransactionalEventListener(classes = MessageSendEvent.class, fallbackExecution = true)
     public void publishChatToWechat(@NotNull MessageSendEvent event) {
         Message message = messageDao.getById(event.getMsgId());
         if (Objects.nonNull(message.getExtra().getAtUidList())) {
             weChatMsgOperationService.publishChatMsgToWeChatUser(message.getFromUid(), message.getExtra().getAtUidList(),
                     message.getContent());
         }
-    }
+    }*/
 }

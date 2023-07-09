@@ -27,7 +27,7 @@ import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
 @Slf4j
-@Component
+//@Component
 public class WeChatMsgOperationServiceImpl  implements WeChatMsgOperationService {
 
     private static final ExecutorService executor = new ThreadPoolExecutor(1, 10, 3000L,
@@ -54,7 +54,8 @@ public class WeChatMsgOperationServiceImpl  implements WeChatMsgOperationService
         uidSet.addAll(receiverUidList);
         Map<Long, User> userMap = userCache.getUserInfoBatch(uidSet);
         userMap.values().forEach(user -> {
-            if (Objects.nonNull(user.getOpenId()) && user.isPublishChatToWechatSwitch()) {
+           // if (Objects.nonNull(user.getOpenId()) && user.isPublishChatToWechatSwitch()) {
+                if (Objects.nonNull(user.getOpenId()) ) {
                 executor.execute(() -> {
                     WxMpTemplateMessage msgTemplate = getAtMsgTemplate(sender, user.getOpenId(), msg);
                     publishTemplateMsg(msgTemplate);

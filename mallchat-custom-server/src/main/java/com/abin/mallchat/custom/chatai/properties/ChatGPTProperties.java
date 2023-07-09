@@ -22,6 +22,8 @@ public class ChatGPTProperties {
      * 模型名称
      */
     private String modelName = "text-davinci-003";
+
+    //private String modelName ="gpt-3.5-turbo";
     /**
      * openAI key
      */
@@ -39,6 +41,6 @@ public class ChatGPTProperties {
     /**
      * 用户每天条数限制
      */
-    private Integer limit = 5;
+    private Integer limit = 100;
 
 }
